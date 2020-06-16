@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A9BFC60248838920066393B /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9BFC5F248838920066393B /* TimeManager.swift */; };
+		5A1EB46C2499112500444DA6 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1EB46B2499112500444DA6 /* MetalKit.framework */; };
+		5A1EB46E2499113100444DA6 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1EB46D2499113100444DA6 /* Metal.framework */; };
+		5A1EB4712499115F00444DA6 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1EB4702499115F00444DA6 /* ImageIO.framework */; };
+		5A1EB4732499116B00444DA6 /* NChart3D.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1EB4722499116B00444DA6 /* NChart3D.framework */; };
+		5A1EB477249920AE00444DA6 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1EB476249920AE00444DA6 /* ChartView.swift */; };
+		5A1EB47A2499267D00444DA6 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1EB46F2499113A00444DA6 /* libc++.tbd */; };
 		AD4064972485119000A3386B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4064962485119000A3386B /* AppDelegate.swift */; };
 		AD4064992485119000A3386B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4064982485119000A3386B /* SceneDelegate.swift */; };
 		AD40649B2485119000A3386B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD40649A2485119000A3386B /* ContentView.swift */; };
@@ -21,7 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A9BFC5F248838920066393B /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
+		5A1EB46B2499112500444DA6 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		5A1EB46D2499113100444DA6 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		5A1EB46F2499113A00444DA6 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		5A1EB4702499115F00444DA6 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		5A1EB4722499116B00444DA6 /* NChart3D.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NChart3D.framework; path = Library/Frameworks/NChart3D.framework; sourceTree = DEVELOPER_DIR; };
+		5A1EB476249920AE00444DA6 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		AD4064932485119000A3386B /* MDIT_MEALSTUDY_APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDIT_MEALSTUDY_APP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4064962485119000A3386B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD4064982485119000A3386B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,17 +51,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1EB46E2499113100444DA6 /* Metal.framework in Frameworks */,
+				5A1EB47A2499267D00444DA6 /* libc++.tbd in Frameworks */,
+				5A1EB4732499116B00444DA6 /* NChart3D.framework in Frameworks */,
+				5A1EB46C2499112500444DA6 /* MetalKit.framework in Frameworks */,
+				5A1EB4712499115F00444DA6 /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A1EB46A2499112500444DA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A1EB4722499116B00444DA6 /* NChart3D.framework */,
+				5A1EB4702499115F00444DA6 /* ImageIO.framework */,
+				5A1EB46D2499113100444DA6 /* Metal.framework */,
+				5A1EB46B2499112500444DA6 /* MetalKit.framework */,
+				5A1EB46F2499113A00444DA6 /* libc++.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A6417C1249159E500766F4C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD40649A2485119000A3386B /* ContentView.swift */,
+				5A1EB476249920AE00444DA6 /* ChartView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		AD40648A2485119000A3386B = {
 			isa = PBXGroup;
 			children = (
-				AD4064952485119000A3386B /* MDIT_MEALSTUDY_APP */,
+				5A1EB46A2499112500444DA6 /* Frameworks */,
 				AD4064942485119000A3386B /* Products */,
+				AD4064952485119000A3386B /* MDIT_MEALSTUDY_APP */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,17 +103,15 @@
 		AD4064952485119000A3386B /* MDIT_MEALSTUDY_APP */ = {
 			isa = PBXGroup;
 			children = (
+				AD40649E2485119A00A3386B /* Preview Content */,
+				5A6417C1249159E500766F4C /* Views */,
 				AD4064B124851F6600A3386B /* Util */,
 				AD4064AA2485131400A3386B /* Model */,
 				AD4064962485119000A3386B /* AppDelegate.swift */,
 				AD4064982485119000A3386B /* SceneDelegate.swift */,
-				AD40649A2485119000A3386B /* ContentView.swift */,
 				AD40649C2485119A00A3386B /* Assets.xcassets */,
 				AD4064A12485119A00A3386B /* LaunchScreen.storyboard */,
 				AD4064A42485119A00A3386B /* Info.plist */,
-				AD40649E2485119A00A3386B /* Preview Content */,
-				AD4064AD2485145D00A3386B /* ContentViewModel.swift */,
-				AD4064AF248515EB00A3386B /* GlucoseRow.swift */,
 			);
 			path = MDIT_MEALSTUDY_APP;
 			sourceTree = "<group>";
@@ -92,8 +127,9 @@
 		AD4064AA2485131400A3386B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD4064AF248515EB00A3386B /* GlucoseRow.swift */,
+				AD4064AD2485145D00A3386B /* ContentViewModel.swift */,
 				AD4064AB2485132D00A3386B /* CGM.swift */,
-				5A9BFC5F248838920066393B /* TimeManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,12 +215,12 @@
 			files = (
 				AD4064B324851F7800A3386B /* CGMDateFormatter.swift in Sources */,
 				AD4064972485119000A3386B /* AppDelegate.swift in Sources */,
-				5A9BFC60248838920066393B /* TimeManager.swift in Sources */,
 				AD4064992485119000A3386B /* SceneDelegate.swift in Sources */,
 				AD40649B2485119000A3386B /* ContentView.swift in Sources */,
 				AD4064B0248515EB00A3386B /* GlucoseRow.swift in Sources */,
 				AD4064AC2485132D00A3386B /* CGM.swift in Sources */,
 				AD4064AE2485145D00A3386B /* ContentViewModel.swift in Sources */,
+				5A1EB477249920AE00444DA6 /* ChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +360,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MDIT_MEALSTUDY_APP/Preview Content\"";
 				DEVELOPMENT_TEAM = ZFK2N7G4G9;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_FRAMEWORKS_DIR)";
 				INFOPLIST_FILE = MDIT_MEALSTUDY_APP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -332,6 +369,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Lilly.MDIT-MEALSTUDY-APP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Applications/Xcode.app/Contents/Developer/Library/Frameworks/NChart3D.framework/Headers/NChart3D.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -345,6 +383,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MDIT_MEALSTUDY_APP/Preview Content\"";
 				DEVELOPMENT_TEAM = ZFK2N7G4G9;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_FRAMEWORKS_DIR)";
 				INFOPLIST_FILE = MDIT_MEALSTUDY_APP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -353,6 +392,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Lilly.MDIT-MEALSTUDY-APP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Applications/Xcode.app/Contents/Developer/Library/Frameworks/NChart3D.framework/Headers/NChart3D.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

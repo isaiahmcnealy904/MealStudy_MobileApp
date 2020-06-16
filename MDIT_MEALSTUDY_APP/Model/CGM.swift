@@ -20,11 +20,16 @@ extension CGM {
 
     static func generateRandomCGM() -> CGM {
         
-        // generate a random value to pass to returned CGM
-//        let cgmValue = String(format: "%.2f", Float.random(in: 1..<10))
-
         return CGM(id: "50", value: "10", trend: "Single Arrow Up", timestamp: "2020-06-01 10:20:30")
 
     }
+    
+    // create function to generate current date and time -> timestamp: Time
+    
+    // create function to generate random value -> value: Int
+    
+    // create function to calculate if value is trending up or down -> trend: String
+    
+    
     
 }

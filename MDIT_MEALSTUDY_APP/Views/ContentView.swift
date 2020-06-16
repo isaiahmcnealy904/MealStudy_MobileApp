@@ -8,6 +8,7 @@
 
 import SwiftUI
 import UserNotifications
+import UIKit
 
 struct ContentView: View {
  
@@ -24,6 +25,9 @@ struct ContentView: View {
         
         // verticle stack for the entire home page
         VStack(spacing: 20){
+            
+            // display chart
+            ChartView()
             
             // create a list to contain the CGM data
             List(viewModel.glucoseArray) { cgm in

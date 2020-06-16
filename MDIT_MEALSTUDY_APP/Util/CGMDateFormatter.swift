@@ -10,7 +10,7 @@ import Foundation
 
 class CGMDateFormatter{
     
-    // formats the date and time for use
+    // formats the date and time for use in cgm table
     static func getFormatter() -> DateFormatter{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-YYYY HH:MM:SS"
