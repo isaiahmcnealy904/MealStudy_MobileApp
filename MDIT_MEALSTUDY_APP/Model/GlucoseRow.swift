@@ -10,7 +10,6 @@ import SwiftUI
 
 struct GlucoseRow: View {
     
-//    var quote: Quote
     var cgm: CGM
     
     var body: some View {
@@ -18,12 +17,14 @@ struct GlucoseRow: View {
         VStack(alignment: .leading, spacing: 5) {
             
             Text(cgm.id).fixedSize(horizontal: false, vertical: true)
-            Text(CGMDateFormatter.getFormatter().string(from: Date())).font(.caption)
             
+            HStack {
+                Text(CGMDateFormatter.getFormatter().string(from: Date())).font(.caption)
+                
+                // Add value text of the cgm
+            }
         }
-        
     }
-    
 }
 
 struct GlucoseRow_Previews: PreviewProvider {
