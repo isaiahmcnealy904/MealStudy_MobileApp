@@ -13,6 +13,7 @@
 		5A1EB4732499116B00444DA6 /* NChart3D.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1EB4722499116B00444DA6 /* NChart3D.framework */; };
 		5A1EB477249920AE00444DA6 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1EB476249920AE00444DA6 /* ChartView.swift */; };
 		5A1EB47A2499267D00444DA6 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1EB46F2499113A00444DA6 /* libc++.tbd */; };
+		5A1EB4802499384600444DA6 /* cgmData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A1EB47F2499384600444DA6 /* cgmData.txt */; };
 		AD4064972485119000A3386B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4064962485119000A3386B /* AppDelegate.swift */; };
 		AD4064992485119000A3386B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4064982485119000A3386B /* SceneDelegate.swift */; };
 		AD40649B2485119000A3386B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD40649A2485119000A3386B /* ContentView.swift */; };
@@ -32,6 +33,7 @@
 		5A1EB4702499115F00444DA6 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		5A1EB4722499116B00444DA6 /* NChart3D.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NChart3D.framework; path = Library/Frameworks/NChart3D.framework; sourceTree = DEVELOPER_DIR; };
 		5A1EB476249920AE00444DA6 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		5A1EB47F2499384600444DA6 /* cgmData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cgmData.txt; path = ../../../../Documents/cgmData.txt; sourceTree = "<group>"; };
 		AD4064932485119000A3386B /* MDIT_MEALSTUDY_APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDIT_MEALSTUDY_APP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4064962485119000A3386B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD4064982485119000A3386B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				AD40649C2485119A00A3386B /* Assets.xcassets */,
 				AD4064A12485119A00A3386B /* LaunchScreen.storyboard */,
 				AD4064A42485119A00A3386B /* Info.plist */,
+				5A1EB47F2499384600444DA6 /* cgmData.txt */,
 			);
 			path = MDIT_MEALSTUDY_APP;
 			sourceTree = "<group>";
@@ -127,9 +130,9 @@
 		AD4064AA2485131400A3386B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AD4064AF248515EB00A3386B /* GlucoseRow.swift */,
 				AD4064AD2485145D00A3386B /* ContentViewModel.swift */,
 				AD4064AB2485132D00A3386B /* CGM.swift */,
+				AD4064AF248515EB00A3386B /* GlucoseRow.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD4064A32485119A00A3386B /* LaunchScreen.storyboard in Resources */,
+				5A1EB4802499384600444DA6 /* cgmData.txt in Resources */,
 				AD4064A02485119A00A3386B /* Preview Assets.xcassets in Resources */,
 				AD40649D2485119A00A3386B /* Assets.xcassets in Resources */,
 			);

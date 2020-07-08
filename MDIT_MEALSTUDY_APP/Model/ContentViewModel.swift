@@ -15,16 +15,32 @@ class ContentViewModel: ObservableObject {
     @Published var glucoseArray: [CGM] = []
     
     var cancellable: AnyCancellable?
+    
+    var currentValue: String = ""
+    var currentTime: String = ""
+    
 }
 
 extension ContentViewModel {
    
     func postCGM() {
                 
+        // get url to send the cgm data
         guard let cgmURL = URL(string: "http://localhost:3001/cgmdata") else {
             return
         }
-        let parameterDictionary = ["value" : "100", "trend" : "Single Arrow Down", "timestamp" : "2020-01-06 10:30:00"]
+        
+        // create a dictionary of values to transmit
+        let parameterDictionary = ["value" : CGM.generateRandomValue(), "trend" : "upArrow", "timestamp" : CGM.generateCurrentTime()]
+        
+        // capture the values and timestamp from the dictionary to pass to graph
+        currentValue = parameterDictionary["value"]!
+        currentTime = parameterDictionary["timestamp"]!
+        
+        // print current time and values to the console
+        print("current value: \(currentValue), current time: \(currentTime)")
+  
+        // create a request to the server
         var request = URLRequest(url: cgmURL)
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
@@ -54,6 +70,7 @@ extension ContentViewModel {
 
         }) {[unowned self] (cgm) in
             
+            // insert value into glucose array
             self.glucoseArray.insert(cgm, at: 0)
 
         }

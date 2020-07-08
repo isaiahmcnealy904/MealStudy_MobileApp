@@ -14,6 +14,8 @@ struct ContentView: View {
  
     // creates an object from the viewModel
     @ObservedObject var viewModel: ContentViewModel
+    @ObservedObject var viewChart: ChartView.Coordinator
+    
 
     // create timer and timer objects
     @State var time = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
@@ -25,15 +27,17 @@ struct ContentView: View {
         
         // verticle stack for the entire home page
         VStack(spacing: 20){
-            
+                    
             // display chart
             ChartView()
-            
+     
             // create a list to contain the CGM data
             List(viewModel.glucoseArray) { cgm in
                 GlucoseRow(cgm: cgm)
             }
+            .frame(height: 50)              // set fraze size for list
             .navigationBarTitle("Glucose")  // set title for navigation bar
+        
             
             // stack contains buttons for controlling simulator
             HStack(spacing: 10){
@@ -58,7 +62,7 @@ struct ContentView: View {
                         Image(systemName: self.SimRunning ? "stop.fill" : "play.fill")
                             .foregroundColor(.white)
                         
-                        // set the stop and play text
+                        // set the stop and play t
                         Text(self.SimRunning ? "Stop" : "Start")
                             .foregroundColor(.white)
                         
@@ -79,14 +83,20 @@ struct ContentView: View {
             // if the simulator is runnign
             if self.SimRunning {
                 
+                var currentValue = self.viewModel.currentValue
+                print("current value displayed in chart: \(currentValue) ")
+                
+                // post cgm to list
                 self.viewModel.postCGM()
+                // add new point on graph
+                self.viewChart.stream()
                 
                 //TODO: Remove hard count in final build. Simulator should run until stopped (see lines #20 and #81 - #90)
                 // log to console the record number record
                 if self.count != 5 {   //if count hasn't reached its limit add new record
                     
                     self.count += 1
-                    print("Posted CGM item: \(self.count)")
+                    print("Posted CGM item: \(self.count) \n\n\n")
                     
             
                 } else {    // if count has reach its limit stop the simulator
@@ -103,7 +113,9 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ContentView(viewModel: ContentViewModel())
+            ContentView(viewModel: ContentViewModel(), viewChart: ChartView.Coordinator())
         }
     }
 }
+
+

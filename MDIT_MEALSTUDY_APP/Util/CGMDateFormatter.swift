@@ -13,10 +13,8 @@ class CGMDateFormatter{
     // formats the date and time for use in cgm table
     static func getFormatter() -> DateFormatter{
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-YYYY HH:MM:SS"
-        formatter.locale = Locale.autoupdatingCurrent
+        formatter.dateFormat = "dd-MM-YYYY HH:mm:ss"
         
         return formatter
-
     }
 }
