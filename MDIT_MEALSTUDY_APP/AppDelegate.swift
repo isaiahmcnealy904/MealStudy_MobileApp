@@ -1,7 +1,7 @@
 //
 //  AppDelegate.swift
 //  MDIT_MEALSTUDY_APP
-//
+//name    __NSCFConstantString *    "NSInvalidArgumentException"    0x00007fff806436a0
 //  Created by Pradeep Mysore on 6/1/20.
 //  Copyright © 2020 Pradeep Mysore. All rights reserved.
 //

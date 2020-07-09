@@ -12,6 +12,7 @@ import Combine
 class ContentViewModel: ObservableObject {
     
     let urlSession = URLSession(configuration: URLSessionConfiguration.default)
+    
     @Published var glucoseArray: [CGM] = []
     
     var cancellable: AnyCancellable?
@@ -38,7 +39,7 @@ extension ContentViewModel {
         currentTime = parameterDictionary["timestamp"]!
         
         // print current time and values to the console
-        print("current value: \(currentValue), current time: \(currentTime)")
+//        print("current value: \(currentValue), current time: \(currentTime)")
   
         // create a request to the server
         var request = URLRequest(url: cgmURL)
@@ -70,11 +71,11 @@ extension ContentViewModel {
 
         }) {[unowned self] (cgm) in
             
-            // insert value into glucose array
+            // insert value into glucose array at position 0
             self.glucoseArray.insert(cgm, at: 0)
-
+            
         }
-        
     }
+    
 }
 

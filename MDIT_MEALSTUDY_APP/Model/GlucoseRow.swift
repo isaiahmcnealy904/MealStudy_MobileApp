@@ -21,7 +21,6 @@ struct GlucoseRow: View {
             HStack {
                 Text(CGMDateFormatter.getFormatter().string(from: Date())).font(.caption)
                 
-                // Add value text of the cgm
             }
         }
     }

@@ -12,15 +12,17 @@ import UIKit
 
 struct ChartView: UIViewRepresentable {
     
-    // create a new nchart uiView
-    let m_view: NChartView = NChartView()
+    @Binding var test: Bool
+
     
     // Creates the initial chart
-    func makeUIView(context: Context) -> UIView {
+    func makeUIView(context: Context) -> NChartView {
+
         
         // create a new nchart uiView
-//        let m_view: NChartView = NChartView()
-
+        let m_view = NChartView()
+        
+        
         // attach liscense key
         /*** THIS KEY WILL EXPIRE JULY 19TH, 2020  ***/
         m_view.chart.licenseKey = "dEH1XucrL/2KZnvW5KnsXa2nsvgvl4qHykTWdqkzeNeSKW3NOo0sCNQg9dlhfGAOPUHm3RYQTIzUu01kRnuHwFtezNxPgSpLabrvgPVhbinpyELNLnw1OdOxFZhp0hung5x97uaGkwY2olg6hhqfam/xTpF0BwAOHwOnlXlUSDkp7zaMY0Wy81dqugCss/j1mdpbG4NQkvqtqQC2lq+axNVTbw8snMZsWfPRKswt2b+Pblnq/+bsfe/2WRRhAvm9+INZ29+g8htkLI6a+XDsZAObzE7n/Z/HmIXkMlDhEuJ3a7Ch4ekT/+ITh4MgWUEeHAME+EOvjJX0JTEFHFfAbfD+jNYK7jVORcGGcdsVDWU5eo7mLl9JaKC50nboGxinXLF/MosecghvsyYQNC6XHjs8m3PlqNQM0Q83l2xEU2/F2Q3fFQxvwYf2LwBAu/hPmC27lmIHUroFNKOJzT8FITvkMeRNLeMb2yK2J9m8DbqGLATiEJcKTPMI50dpWpZwbmNInZpfOwR5nHsNf0/qzajHv1S6xm0Asto5EiSmLWKt8Tv0v2sEjK/p7xbFZdfhgJSgR/5tBghfim1YXggP4HdZr03UXXqiH2TYg5i4TTOyCv7Yv2MHSmTYH8X6dPJvY9c+mzDfaBNbsrM91pCaJVPMqXIFLNuBh/lypWW5U08="
@@ -74,14 +76,14 @@ struct ChartView: UIViewRepresentable {
         // call this method any time data was changed
         m_view.chart.updateData()
         
-        // Start the consucutive data updating.
-//        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(Coordinator.stream), userInfo: nil, repeats: true)
-         
         return m_view
     }
  
     // Called when the UI should be changed
-    func updateUIView(_ uiView: UIView, context: Context) {
+    func updateUIView(_ uiView: NChartView, context: Context) {
+        
+        // extends the visible chart
+        uiView.chart.extendData()
     }
     
     // Connects a Coordinator class to the UIView Representable
@@ -106,12 +108,6 @@ struct ChartView: UIViewRepresentable {
         var currentValue: String = ""       // stores generated cgm date (x-axis value)
         
         // MARK: Utility Functions
-        
-        // Used to add extra data points to chart
-        @objc func stream() {
-//            m_view.chart.extendData()     // Force chart to extend data.
-            print("extending data")
-        }
         
         // Generate random value
         func myrand(_ max: Int) -> Double {
@@ -180,9 +176,11 @@ struct ChartView: UIViewRepresentable {
                 return nil
             }
             let date = ContentViewModel()
-            return [date.currentTime as AnyObject]
-//            return [dateForIndex(m_count) as AnyObject]
+//            return [date.currentTime as AnyObject]
+            return [dateForIndex(m_count) as AnyObject]
         }
+        
+        
         
         // MARK: Utility Functions
         

@@ -11,10 +11,17 @@ import UserNotifications
 import UIKit
 
 struct ContentView: View {
+    
+    // creates a shared instance of ContentViewModel for access to cgmArray
+    @EnvironmentObject var cgmArray: ContentViewModel
  
     // creates an object from the viewModel
     @ObservedObject var viewModel: ContentViewModel
     @ObservedObject var viewChart: ChartView.Coordinator
+    
+    @State var test: Bool = true
+    
+    
     
 
     // create timer and timer objects
@@ -29,7 +36,7 @@ struct ContentView: View {
         VStack(spacing: 20){
                     
             // display chart
-            ChartView()
+            ChartView(test: $test)
      
             // create a list to contain the CGM data
             List(viewModel.glucoseArray) { cgm in
@@ -83,13 +90,11 @@ struct ContentView: View {
             // if the simulator is runnign
             if self.SimRunning {
                 
-                var currentValue = self.viewModel.currentValue
-                print("current value displayed in chart: \(currentValue) ")
-                
                 // post cgm to list
                 self.viewModel.postCGM()
+                
                 // add new point on graph
-                self.viewChart.stream()
+                 self.test.toggle()
                 
                 //TODO: Remove hard count in final build. Simulator should run until stopped (see lines #20 and #81 - #90)
                 // log to console the record number record
