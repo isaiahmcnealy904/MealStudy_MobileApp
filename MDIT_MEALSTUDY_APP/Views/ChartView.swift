@@ -340,7 +340,7 @@ struct ChartView: UIViewRepresentable {
         func newState(_ index: Int) -> NChartPointState! {
             
 //            let m_value = Double(self.viewModel.currentValue) ?? 50
-            let m_value = Double(viewModel.currentValue)!
+            let m_value = Double(viewModel.value)
             
             return NChartPointState(alignedToXWithX: index, y: m_value)
 
