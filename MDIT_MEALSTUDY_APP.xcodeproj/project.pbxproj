@@ -16,9 +16,10 @@
 		5A57879B24B7419B00E7E1D0 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A57879A24B7419B00E7E1D0 /* IndicatorView.swift */; };
 		5A57879D24B746F300E7E1D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A57879C24B746F300E7E1D0 /* HomeView.swift */; };
 		5A57879F24B7477B00E7E1D0 /* CGMDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A57879E24B7477B00E7E1D0 /* CGMDetailsView.swift */; };
+		5A5787A324BCA4D500E7E1D0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5787A224BCA4D500E7E1D0 /* Data.swift */; };
+		5A5787A524BCA52D00E7E1D0 /* cgms.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A5787A424BCA52D00E7E1D0 /* cgms.json */; };
 		AD4064972485119000A3386B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4064962485119000A3386B /* AppDelegate.swift */; };
 		AD4064992485119000A3386B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4064982485119000A3386B /* SceneDelegate.swift */; };
-		AD40649B2485119000A3386B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD40649A2485119000A3386B /* ContentView.swift */; };
 		AD40649D2485119A00A3386B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD40649C2485119A00A3386B /* Assets.xcassets */; };
 		AD4064A02485119A00A3386B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD40649F2485119A00A3386B /* Preview Assets.xcassets */; };
 		AD4064A32485119A00A3386B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4064A12485119A00A3386B /* LaunchScreen.storyboard */; };
@@ -38,10 +39,11 @@
 		5A57879A24B7419B00E7E1D0 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		5A57879C24B746F300E7E1D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5A57879E24B7477B00E7E1D0 /* CGMDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGMDetailsView.swift; sourceTree = "<group>"; };
+		5A5787A224BCA4D500E7E1D0 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		5A5787A424BCA52D00E7E1D0 /* cgms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cgms.json; sourceTree = "<group>"; };
 		AD4064932485119000A3386B /* MDIT_MEALSTUDY_APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDIT_MEALSTUDY_APP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4064962485119000A3386B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD4064982485119000A3386B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AD40649A2485119000A3386B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AD40649C2485119A00A3386B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD40649F2485119A00A3386B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AD4064A22485119A00A3386B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,14 +82,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5A5787A824BCB37700E7E1D0 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				5A57879A24B7419B00E7E1D0 /* IndicatorView.swift */,
+				5A1EB476249920AE00444DA6 /* ChartView.swift */,
+				5A57879E24B7477B00E7E1D0 /* CGMDetailsView.swift */,
+			);
+			name = SubViews;
+			sourceTree = "<group>";
+		};
 		5A6417C1249159E500766F4C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AD40649A2485119000A3386B /* ContentView.swift */,
-				5A1EB476249920AE00444DA6 /* ChartView.swift */,
-				5A57879A24B7419B00E7E1D0 /* IndicatorView.swift */,
 				5A57879C24B746F300E7E1D0 /* HomeView.swift */,
-				5A57879E24B7477B00E7E1D0 /* CGMDetailsView.swift */,
+				5A5787A824BCB37700E7E1D0 /* SubViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +130,7 @@
 				AD40649C2485119A00A3386B /* Assets.xcassets */,
 				AD4064A12485119A00A3386B /* LaunchScreen.storyboard */,
 				AD4064A42485119A00A3386B /* Info.plist */,
+				5A5787A424BCA52D00E7E1D0 /* cgms.json */,
 			);
 			path = MDIT_MEALSTUDY_APP;
 			sourceTree = "<group>";
@@ -137,8 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				AD4064AD2485145D00A3386B /* ContentViewModel.swift */,
-				AD4064AB2485132D00A3386B /* CGM.swift */,
 				AD4064AF248515EB00A3386B /* GlucoseRow.swift */,
+				AD4064AB2485132D00A3386B /* CGM.swift */,
+				5A5787A224BCA4D500E7E1D0 /* Data.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,6 +223,7 @@
 				AD4064A32485119A00A3386B /* LaunchScreen.storyboard in Resources */,
 				AD4064A02485119A00A3386B /* Preview Assets.xcassets in Resources */,
 				AD40649D2485119A00A3386B /* Assets.xcassets in Resources */,
+				5A5787A524BCA52D00E7E1D0 /* cgms.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,9 +238,9 @@
 				AD4064972485119000A3386B /* AppDelegate.swift in Sources */,
 				AD4064992485119000A3386B /* SceneDelegate.swift in Sources */,
 				5A57879D24B746F300E7E1D0 /* HomeView.swift in Sources */,
-				AD40649B2485119000A3386B /* ContentView.swift in Sources */,
 				5A57879F24B7477B00E7E1D0 /* CGMDetailsView.swift in Sources */,
 				5A57879B24B7419B00E7E1D0 /* IndicatorView.swift in Sources */,
+				5A5787A324BCA4D500E7E1D0 /* Data.swift in Sources */,
 				AD4064B0248515EB00A3386B /* GlucoseRow.swift in Sources */,
 				AD4064AC2485132D00A3386B /* CGM.swift in Sources */,
 				AD4064AE2485145D00A3386B /* ContentViewModel.swift in Sources */,

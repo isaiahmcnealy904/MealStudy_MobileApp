@@ -9,43 +9,46 @@
 import SwiftUI
 
 struct CGMDetailsView: View {
+    
+    @Binding var test_details: Bool
+    
     var body: some View {
-        Details()
+        Details(viewModel: ContentViewModel())
     }
 }
 
 struct CGMDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        CGMDetailsView()
+        CGMDetailsView(test_details: .constant(true))
     }
 }
 
 struct Details: View {
+
+    // creates an object from the viewModel
+    @ObservedObject var viewModel: ContentViewModel
+    
     var body: some View {
         
-        
+        ZStack{
             
-            ZStack{
+            Rectangle()
+                .fill(Color.gray)
+                .opacity(0.15)
+                .frame(width: 200, height: 250)
+            
+            VStack{
                 
-                Rectangle()
-                    .fill(Color.gray)
-                    .opacity(0.15)
-                    .frame(width: 200, height: 250)
+                Text("Last Updated")
+                    .font(.caption)
+                    .fixedSize()
+                    .foregroundColor(.gray)
                 
-                VStack{
-                    
-                    Text("Last Updated")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                    
-                    Text("3:34 PM")
-                        .font(.largeTitle)
-
-                }
+                Text(viewModel.currentTime)
+                    .font(.headline)
+                
             }
             
-                        
-
-        
+        }
     }
 }
