@@ -11,12 +11,17 @@ import SwiftUI
 
 import Foundation
 
-struct CGM: Codable, Identifiable {
+// identifiable is needed to display things in a list
+// hashable is needed to efficiant categorization
+// codable is needed to map json data into model
+
+struct CGM: Codable, Identifiable, Hashable {
 
     var id: String
     var value: String?
     var trend: String?
     var timestamp: String?
+    
 }
 
 extension CGM {

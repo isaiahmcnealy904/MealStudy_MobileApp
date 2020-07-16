@@ -1,0 +1,52 @@
+[
+    {
+        "id" : "1",
+        "value" : "20",
+        "trend" : "low"
+    },
+    {
+        "id" : "2",
+        "value" : "30",
+        "trend" : "low"
+    },
+    {
+        "id" : "3",
+        "value" : "60",
+        "trend" : "in-range"
+    },
+    {
+        "id" : "4",
+        "value" : "40",
+        "trend" : "in-range"
+    },
+    {
+        "id" : "5",
+        "value" : "60",
+        "trend" : "in-range"
+    },
+    {
+        "id" : "6",
+        "value" : "70",
+        "trend" : "high"
+    },
+    {
+        "id" : "7",
+        "value" : "80",
+        "trend" : "high"
+    },
+    {
+        "id" : "8",
+        "value" : "90",
+        "trend" : "high"
+    },
+    {
+        "id" : "9",
+        "value" : "50",
+        "trend" : "in-range"
+    },
+    {
+        "id" : "10",
+        "value" : "30",
+        "trend" : "low"
+    }
+]

@@ -12,13 +12,26 @@ import Combine
 class ContentViewModel: ObservableObject {
     
     let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-    @Published var glucoseArray: [CGM] = []
     
     var cancellable: AnyCancellable?
     
-    var currentValue: String = ""
-    var currentTime: String = ""
+    @Published var arrayData:[CGM] = cgmData    // this contains an array of premade cgm values read in from cgms.json
+    @Published var glucoseArray: [CGM] = []     // empty array used to store cgms as they are published
+    @Published var index: Int = 0               // contains the current index for reading from arrayData
     
+    
+    @Published var currentValue: String = "40"
+    @Published var currentTime: String = "4:30pm"
+    @Published var currentTrend: String = "High - Dropping"
+    
+    @Published var value = 0
+    init() {
+        for i in 1...10 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)) {
+                self.value += 1
+            }
+        }
+    }
 }
 
 extension ContentViewModel {
@@ -31,15 +44,13 @@ extension ContentViewModel {
         }
         
         // create a dictionary of values to transmit
-        let parameterDictionary = ["value" : CGM.generateRandomValue(), "trend" : "upArrow", "timestamp" : CGM.generateCurrentTime()]
+        let parameterDictionary = ["value" : arrayData[index].value, "trend" : arrayData[index].trend, "timestamp" : CGM.generateCurrentTime()]
         
         // capture the values and timestamp from the dictionary to pass to graph
-        currentValue = parameterDictionary["value"]!
-        currentTime = parameterDictionary["timestamp"]!
+        currentValue = parameterDictionary["value"]!!
+        currentTime = parameterDictionary["timestamp"]!!
+        currentTrend = parameterDictionary["trend"]!!
         
-        // print current time and values to the console
-        print("current value: \(currentValue), current time: \(currentTime)")
-  
         // create a request to the server
         var request = URLRequest(url: cgmURL)
         request.httpMethod = "POST"
@@ -50,31 +61,49 @@ extension ContentViewModel {
         request.httpBody = httpBody
 
         cancellable = urlSession.dataTaskPublisher(for: request).map { (data, response) -> Data in
-
+            
             return data
 
         }.tryMap { (data) -> CGM in
             
             let jsonDecoder = JSONDecoder()
-            
+        
             return try jsonDecoder.decode(CGM.self, from: data)
 
         }.receive(on: DispatchQueue.main).sink(receiveCompletion: { (subscriber) in
 
             switch subscriber {
             case .failure(let error):
-                print("Error: \(error.localizedDescription)")
+                print("Error General: \(error)\n")
+                print("Error Detailed: \(error.localizedDescription)\n\n")
             case .finished:
                 break
             }
 
         }) {[unowned self] (cgm) in
             
-            // insert value into glucose array
+            // insert value into glucose array at position 0
             self.glucoseArray.insert(cgm, at: 0)
-
         }
         
+        testPrint()
+        
+        // increment current index
+        self.index += 1
+        
+        // check that index doesnt exceed size of array
+        if (self.index > 9) {   // TODO: replace hardcoded size with size of cgmData
+            self.index %= 9     // TODO: replace hardcoded size with size of cgmData
+//            self.index = 0
+        }
+        
+    }
+    
+    func testPrint() {
+        // print current time, trend, and values to the console
+        print("current value: \(currentValue), current trend: \(currentTrend), current time: \(currentTime)")
+        print("current index in arrayData is --> \(self.index)")
+
     }
 }
 
