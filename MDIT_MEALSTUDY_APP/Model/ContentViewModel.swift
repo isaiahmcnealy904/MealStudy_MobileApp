@@ -11,6 +11,8 @@ import Combine
 
 class ContentViewModel: ObservableObject {
     
+    let TAG = "ContentViewModel"
+    
     let urlSession = URLSession(configuration: URLSessionConfiguration.default)
     
     var cancellable: AnyCancellable?
@@ -26,7 +28,7 @@ class ContentViewModel: ObservableObject {
     
     @Published var value = 0
     init() {
-        for i in 1...10 {
+        for i in 1...100 {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)) {
                 self.value += 1
             }
@@ -101,9 +103,8 @@ extension ContentViewModel {
     
     func testPrint() {
         // print current time, trend, and values to the console
-        print("current value: \(currentValue), current trend: \(currentTrend), current time: \(currentTime)")
-        print("current index in arrayData is --> \(self.index)")
-
+        print("Context: \(self.TAG) | current value: \(self.currentValue) | current trend: \(self.currentTrend) | current Time: \(self.currentTime)")
+        
     }
 }
 

@@ -10,6 +10,8 @@ import SwiftUI
 
 struct CGMDetailsView: View {
     
+    let TAG = "CGMDetailsView"
+    
     @Binding var test_details: Bool
     
     var body: some View {

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct IndicatorView: View {
     
-    @Binding var test_indicator: Bool
+//    @Binding var test_indicator: Bool
     
     var body: some View {
         Indicator(viewModel: ContentViewModel(), cgm: cgmData)
@@ -20,14 +20,13 @@ struct IndicatorView: View {
 
 struct IndicatorView_Previews: PreviewProvider {
     static var previews: some View {
-        IndicatorView(test_indicator: .constant(true))
+//        IndicatorView(test_indicator: .constant(true))
+        IndicatorView()
     }
 }
 
 struct Indicator: View {
 
-    
-    
     @ObservedObject var viewModel : ContentViewModel
     
     var cgm:[CGM]

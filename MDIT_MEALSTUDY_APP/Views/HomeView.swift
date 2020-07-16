@@ -16,7 +16,7 @@ struct HomeView: View {
     @ObservedObject var viewModel: ContentViewModel
     
     // tracks the simulator state and starts auto charting on graph
-    @State var test_indicator: Bool = true
+//    @State var test_indicator: Bool = true
     @State var test_details: Bool = true
     @State var test: Bool = true
     
@@ -30,7 +30,7 @@ struct HomeView: View {
         VStack {
             
             HStack {
-                IndicatorView(test_indicator: $test_indicator)     // display indicator
+                IndicatorView()     // display indicator
                 CGMDetailsView(test_details: $test_details)    // display details
             }
             
@@ -92,7 +92,7 @@ struct HomeView: View {
                      self.test.toggle()
                     
                     // update indicator
-                    self.test_indicator.toggle()
+//                    self.test_indicator.toggle()
                     self.test_details.toggle()
                     
                     self.count += 1
