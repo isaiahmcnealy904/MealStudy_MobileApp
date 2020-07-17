@@ -11,17 +11,11 @@ import SwiftUI
 struct CGMDetailsView: View {
     
     let TAG = "CGMDetailsView"
-    
-    @Binding var test_details: Bool
+
+    @Binding var viewModel: ContentViewModel
     
     var body: some View {
-        Details(viewModel: ContentViewModel())
-    }
-}
-
-struct CGMDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        CGMDetailsView(test_details: .constant(true))
+        Details(viewModel: viewModel)
     }
 }
 
@@ -46,11 +40,20 @@ struct Details: View {
                     .fixedSize()
                     .foregroundColor(.gray)
                 
+                
                 Text(viewModel.currentTime)
                     .font(.headline)
+                    .fixedSize()
                 
             }
             
         }
     }
 }
+
+
+//struct CGMDetailsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CGMDetailsView(viewModel: CGMDetailsView.$viewModel)
+//    }
+//}
