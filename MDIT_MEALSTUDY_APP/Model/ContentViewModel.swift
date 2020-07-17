@@ -22,9 +22,9 @@ class ContentViewModel: ObservableObject {
     @Published var index: Int = 0               // contains the current index for reading from arrayData
     
     
-    @Published var currentValue: String = "40"
-    @Published var currentTime: String = "4:30pm"
-    @Published var currentTrend: String = "High - Dropping"
+    @Published var currentValue: String = "00"
+    @Published var currentTime: String = "00"
+    @Published var currentTrend: String = "startup"
     
     @Published var value = 0
     init() {

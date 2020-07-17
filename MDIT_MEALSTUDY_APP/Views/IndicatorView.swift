@@ -10,19 +10,14 @@ import SwiftUI
 
 struct IndicatorView: View {
     
-//    @Binding var test_indicator: Bool
+    let TAG = "IndicatorView"
+    
+    @Binding var viewModel: ContentViewModel
     
     var body: some View {
-        Indicator(viewModel: ContentViewModel(), cgm: cgmData)
+        Indicator(viewModel: viewModel, cgm: cgmData)
     }
     
-}
-
-struct IndicatorView_Previews: PreviewProvider {
-    static var previews: some View {
-//        IndicatorView(test_indicator: .constant(true))
-        IndicatorView()
-    }
 }
 
 struct Indicator: View {
@@ -47,10 +42,13 @@ struct Indicator: View {
             
             VStack {
                 
-                Text(String(viewModel.value))     // retrieve this from CGM Object
+                Text(String(viewModel.currentValue))     // retrieve this from CGM Object
+//                Text(String(viewModel.value))
                     .font(.headline)
+                    .foregroundColor(.white)
                 
                 Text("mg/dL")
+                    .foregroundColor(.white)
             }
             
             
@@ -58,3 +56,9 @@ struct Indicator: View {
 
     }
 }
+
+//struct IndicatorView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IndicatorView(viewModel: ContentViewModel())
+//    }
+//}

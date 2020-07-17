@@ -13,7 +13,7 @@ struct HomeView: View {
     let TAG = "HomeView.swift"
     
     // creates an object from the viewModel
-    @ObservedObject var viewModel: ContentViewModel
+    @State var viewModel: ContentViewModel
     
     // tracks the simulator state and starts auto charting on graph
 //    @State var test_indicator: Bool = true
@@ -30,8 +30,8 @@ struct HomeView: View {
         VStack {
             
             HStack {
-                IndicatorView()     // display indicator
-                CGMDetailsView(test_details: $test_details)    // display details
+                IndicatorView(viewModel: $viewModel)     // display indicator
+                CGMDetailsView(viewModel: $viewModel)    // display details
             }
             
             // display chart
@@ -83,7 +83,7 @@ struct HomeView: View {
                 if self.count != 50 {   //if count hasn't reached its limit add new record
                     
                     // print current value, trend, and timestamp from contentViewModel
-                    print("Context: \(self.TAG) | current value: \(self.viewModel.currentValue) | current trend: \(self.viewModel.currentTrend) | current Time: \(self.viewModel.currentTime)")
+//                    print("Context: \(self.TAG) | current value: \(self.viewModel.currentValue) | current trend: \(self.viewModel.currentTrend) | current Time: \(self.viewModel.currentTime)")
                     
                     // post cgm to list
                     self.viewModel.postCGM()
@@ -93,7 +93,7 @@ struct HomeView: View {
                     
                     // update indicator
 //                    self.test_indicator.toggle()
-                    self.test_details.toggle()
+//                    self.test_details.toggle()
                     
                     self.count += 1
                     print("Posted CGM item: \(self.count) \n\n")

@@ -13,6 +13,9 @@ import UIKit
 struct ChartView: UIViewRepresentable {
     
     @Binding var test: Bool
+    
+
+//    @Binding var viewModel: ContentViewModel
 
     
     // Creates the initial chart
@@ -94,8 +97,7 @@ struct ChartView: UIViewRepresentable {
  
         // create a series to be displayed.
         let series = NChartLineSeries()
-        
-        
+                
         // give series color and pattern
         series.brush = NChartSolidColorBrush(color: UIColor.green)
         series.lineDash = NChartLineDash(pattern: [3, 3])
@@ -218,11 +220,11 @@ struct ChartView: UIViewRepresentable {
 
     // Coordinator class needed for controlling the view
     class Coordinator: NSObject, NChartSeriesDataSource, NChartValueAxisDataSource, UINavigationControllerDelegate, ObservableObject {
-        
-        @ObservedObject var viewModel = ContentViewModel()
-        
-        @ObservedObject var cgmReference = ContentViewModel()
+
+//        @Binding var viewModel: ContentViewModel
     
+        @State var viewModel = ContentViewModel()
+            
         var m_count: Int = 0        // used to track index in chart
         let valueArray = [15, 40, 60, 80, 90, 60, 40]     // test array of input values for chart
   
@@ -339,10 +341,12 @@ struct ChartView: UIViewRepresentable {
         
         func newState(_ index: Int) -> NChartPointState! {
             
-//            let m_value = Double(self.viewModel.currentValue) ?? 50
-            let m_value = Double(viewModel.value)
+            let m_value = Double(viewModel.currentValue)
+//            let m_value = Double(viewModel.value)
             
-            return NChartPointState(alignedToXWithX: index, y: m_value)
+            print("m_value is : \(m_value)\n")
+            
+            return NChartPointState(alignedToXWithX: index, y: m_value ?? 80)
 
         }
         
