@@ -220,9 +220,9 @@ struct ChartView: UIViewRepresentable {
     // Coordinator class needed for controlling the view
     class Coordinator: NSObject, NChartSeriesDataSource, NChartValueAxisDataSource, UINavigationControllerDelegate, ObservableObject {
 
-        @Binding var viewModel: ContentViewModel
+//        @Binding var viewModel: ContentViewModel
     
-//        @State var viewModel = ContentViewModel()
+        @State var viewModel = ContentViewModel()
             
         var m_count: Int = 0        // used to track index in chart
         let valueArray = [15, 40, 60, 80, 90, 60, 40]     // test array of input values for chart
