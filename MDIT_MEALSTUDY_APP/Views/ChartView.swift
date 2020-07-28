@@ -58,6 +58,7 @@ struct ChartView: UIViewRepresentable {
         m_view.chart.cartesianSystem.xAxis.minTickSpacing = 0.0
         m_view.chart.cartesianSystem.xAxis.maxLabelLength = 50.0
         m_view.chart.cartesianSystem.xAxis.labelsLineBreakMode = NSLineBreakMode.byWordWrapping
+        
         m_view.chart.cartesianSystem.syAxis.labelsVisible = false
 
         m_view.chart.cartesianSystem.xAxis.font = .systemFont(ofSize: 10.0)
@@ -69,17 +70,17 @@ struct ChartView: UIViewRepresentable {
         let lowMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .red, value: Double(20), text: nil)
         m_view.chart.cartesianSystem.syAxis.addMark(lowMark)
         
-//        let firstxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 0.0, text: nil)
-//        m_view.chart.cartesianSystem.yAxis.addMark(firstxMark)
-//
-//        let secondxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 0.5, text: nil)
-//        m_view.chart.cartesianSystem.yAxis.addMark(secondxMark)
-//
-//        let thirdxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 1.0, text: nil)
-//        m_view.chart.cartesianSystem.yAxis.addMark(thirdxMark)
-//
-//        let fourthxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 1.5, text: nil)
-//        m_view.chart.cartesianSystem.yAxis.addMark(fourthxMark)
+        let firstxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 0.0, text: nil)
+        m_view.chart.cartesianSystem.yAxis.addMark(firstxMark)
+
+        let secondxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 0.5, text: nil)
+        m_view.chart.cartesianSystem.yAxis.addMark(secondxMark)
+
+        let thirdxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 1.0, text: nil)
+        m_view.chart.cartesianSystem.yAxis.addMark(thirdxMark)
+
+        let fourthxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 1.5, text: nil)
+        m_view.chart.cartesianSystem.yAxis.addMark(fourthxMark)
         
         // add some margin to the borders
         m_view.chart.cartesianSystem.margin = NChartMarginMake(10.0,10.0,10.0,20.0)
@@ -93,8 +94,6 @@ struct ChartView: UIViewRepresentable {
         // turn on anti-aliasing for better visual display
         m_view.chart.shouldAntialias = true
         
-        
- 
         // create a series to be displayed.
         let series = NChartLineSeries()
                 
@@ -346,7 +345,7 @@ struct ChartView: UIViewRepresentable {
             
             print("m_value is : \(m_value)\n")
             
-            return NChartPointState(alignedToXWithX: index, y: m_value ?? 80)
+            return NChartPointState(alignedToXWithX: index, y: m_value ?? 50)
 
         }
         
