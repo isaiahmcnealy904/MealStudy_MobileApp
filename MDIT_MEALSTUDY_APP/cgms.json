@@ -1,52 +1,52 @@
 [
     {
         "id" : "1",
-        "value" : "20",
-        "trend" : "Low - Dropping Rapidly"
+        "value" : "60",
+        "trend" : "Low - Dropping"
     },
     {
         "id" : "2",
-        "value" : "30",
+        "value" : "70",
         "trend" : "Low - Rising"
     },
     {
         "id" : "3",
-        "value" : "60",
+        "value" : "75",
         "trend" : "In Range - Rising"
     },
     {
         "id" : "4",
-        "value" : "40",
-        "trend" : "In Range - Dropping"
+        "value" : "75",
+        "trend" : "In Range - Steady"
     },
     {
         "id" : "5",
-        "value" : "60",
-        "trend" : "In Range - Rising"
+        "value" : "100",
+        "trend" : "In Range - Rising Rapidly"
     },
     {
         "id" : "6",
-        "value" : "70",
-        "trend" : "High - Rising"
+        "value" : "140",
+        "trend" : "High - Rising Rapidly"
     },
     {
         "id" : "7",
-        "value" : "80",
-        "trend" : "High - Rising"
+        "value" : "100",
+        "trend" : "In Range - Dropping"
     },
     {
         "id" : "8",
         "value" : "90",
-        "trend" : "High - Rising"
+        "trend" : "In Range - Dropping"
     },
     {
         "id" : "9",
-        "value" : "50",
+        "value" : "80",
         "trend" : "In Range - Dropping"
     },
     {
         "id" : "10",
-        "value" : "30",
-        "trend" : "Low - Dropping"
+        "value" : "80",
+        "trend" : "In Range - Steady"
     }
 ]
