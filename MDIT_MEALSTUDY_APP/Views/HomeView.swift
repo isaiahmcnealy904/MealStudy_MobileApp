@@ -17,7 +17,7 @@ struct HomeView: View {
     
     // tracks the simulator state and starts auto charting on graph
 //    @State var test_indicator: Bool = true
-    @State var test_details: Bool = true
+//    @State var test_details: Bool = true
     @State var test: Bool = true
     
     // create timer and timer objects
@@ -31,13 +31,17 @@ struct HomeView: View {
             
             HStack {
                 IndicatorView(viewModel: $viewModel)     // display indicator
+            
                 CGMDetailsView(viewModel: $viewModel)    // display details
             }
             
-            // display chart
-            ChartView(test: $test)
-                .frame(height: 300)
+            Spacer()
             
+            // display chart
+            ChartView(test: $test, viewModel: $viewModel)
+                .frame(height: 350)
+            
+            Spacer()
             
             // start / stop button for simulator
             Button(action: {
@@ -71,6 +75,8 @@ struct HomeView: View {
                 .shadow(radius: 6)
                 
             }
+            
+            Spacer()
         }
         // when the timer goes off do something
         .onReceive(self.time) { (_) in

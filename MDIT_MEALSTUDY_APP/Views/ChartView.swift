@@ -13,9 +13,7 @@ import UIKit
 struct ChartView: UIViewRepresentable {
     
     @Binding var test: Bool
-    
-
-//    @Binding var viewModel: ContentViewModel
+    @Binding var viewModel: ContentViewModel
 
     
     // Creates the initial chart
@@ -25,23 +23,21 @@ struct ChartView: UIViewRepresentable {
         // create a new nchart uiView
         let m_view = NChartView()
         
-        
         // attach liscense key
         /*** THIS KEY WILL EXPIRE JULY 19TH, 2020  ***/
-        m_view.chart.licenseKey = "dEH1XucrL/2KZnvW5KnsXa2nsvgvl4qHykTWdqkzeNeSKW3NOo0sCNQg9dlhfGAOPUHm3RYQTIzUu01kRnuHwFtezNxPgSpLabrvgPVhbinpyELNLnw1OdOxFZhp0hung5x97uaGkwY2olg6hhqfam/xTpF0BwAOHwOnlXlUSDkp7zaMY0Wy81dqugCss/j1mdpbG4NQkvqtqQC2lq+axNVTbw8snMZsWfPRKswt2b+Pblnq/+bsfe/2WRRhAvm9+INZ29+g8htkLI6a+XDsZAObzE7n/Z/HmIXkMlDhEuJ3a7Ch4ekT/+ITh4MgWUEeHAME+EOvjJX0JTEFHFfAbfD+jNYK7jVORcGGcdsVDWU5eo7mLl9JaKC50nboGxinXLF/MosecghvsyYQNC6XHjs8m3PlqNQM0Q83l2xEU2/F2Q3fFQxvwYf2LwBAu/hPmC27lmIHUroFNKOJzT8FITvkMeRNLeMb2yK2J9m8DbqGLATiEJcKTPMI50dpWpZwbmNInZpfOwR5nHsNf0/qzajHv1S6xm0Asto5EiSmLWKt8Tv0v2sEjK/p7xbFZdfhgJSgR/5tBghfim1YXggP4HdZr03UXXqiH2TYg5i4TTOyCv7Yv2MHSmTYH8X6dPJvY9c+mzDfaBNbsrM91pCaJVPMqXIFLNuBh/lypWW5U08="
-        
+        m_view.chart.licenseKey = "FtfPjf1xOUp1zpX68ljb5nx7ickJlZco5GaaUjrzJxxbCOPhIxW+GLZyRsb9YQ25rwIxc2aOrdhleuwiQhE3InC0V0eBAEFBWwh2ti1+7DmFxLaMzPn5596VzDXVhxLaaseBWhQ45YIYaOa6ePMhFDuuJpgsl7JGdABJZOOIcDDkjoBLZIz9M1ODbhuxGxf9VEqCYzy1AA+/y72EvKWU5XxJQB0okCPBGMiQ8G2In5QgmMrwqRIWGgi7/UodXeyAzD3QduUg6Bu6cmsSLd0NxBJsFr6Y0AdtI9xz50p4+FqudbHky226Msle0TWA3/wKuusZ1N51UpoGqelewR1XJ0MPBgOoqzDaQBUPFql3LpYOVU259/pkl32/muQzVukUZtZumaWHcEX0sUzmAn94oWtmauuyc0NtmIdkdoCIRjgduvGxJo4z/ysUxf66wZyb0TrqC9O7jy3gEldKiUeLWx56Z+RMBBLUd4TIcpYxy0oRpYypaCol4jIhVwo/Q5752FTJ2w5xdjgV0O5UzSafkpWZhgI/sMLtPCnTGMY6ZZxvLNz8ZR+mBY+CgmLHSJ1ZPtW7hH4AxHlCxBIjwb+hZ3dLQH2MbzPdIEETI2od+fjOQ2WAxGxAsvEYv9PBy4IUT3LHwQUc1GBQXfNUEXeCuYNAAf9b6W/1NciCdkxx3S0="
         
         // Remove marks from the axis
         m_view.chart.cartesianSystem.yAxis.removeAllMarks()
         m_view.chart.cartesianSystem.syAxis.removeAllMarks()
         
         // remove the gridlines and borders
-        m_view.chart.cartesianSystem.borderVisible = false
+        m_view.chart.cartesianSystem.borderVisible = false;
         m_view.chart.cartesianSystem.xAlongY.visible = false;
         m_view.chart.cartesianSystem.syAlongX.visible = false;
         m_view.chart.cartesianSystem.yAlongX.visible = false;
         
-        m_view.chart.cartesianSystem.xAxis.hasOffset = false
+        m_view.chart.cartesianSystem.xAxis.hasOffset = true
         
         m_view.chart.shouldBouncePan = false
         
@@ -49,37 +45,37 @@ struct ChartView: UIViewRepresentable {
         
         // Turn on the date time mode of X-Axis.
         m_view.chart.cartesianSystem.xAxis.hasDates = true
-
         m_view.chart.cartesianSystem.xAxis.shouldBeautifyMinAndMax = false
         m_view.chart.cartesianSystem.yAxis.shouldBeautifyMinAndMax = false
-        m_view.chart.cartesianSystem.syAxis.shouldBeautifyMinAndMax = false
+//        m_view.chart.cartesianSystem.syAxis.shouldBeautifyMinAndMax = false
+        
 
         // Style ticks and labels
         m_view.chart.cartesianSystem.xAxis.minTickSpacing = 0.0
         m_view.chart.cartesianSystem.xAxis.maxLabelLength = 50.0
         m_view.chart.cartesianSystem.xAxis.labelsLineBreakMode = NSLineBreakMode.byWordWrapping
-        
-        m_view.chart.cartesianSystem.syAxis.labelsVisible = false
 
-        m_view.chart.cartesianSystem.xAxis.font = .systemFont(ofSize: 10.0)
+        m_view.chart.cartesianSystem.syAxis.labelsVisible = false   // disable right hand Y labels
+
+        m_view.chart.cartesianSystem.xAxis.font = .systemFont(ofSize: 12.0)
         
         // Creat the low and high marker ranges
-        let highMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: UIColor(red:0.99, green:0.80, blue:0.00, alpha:1.0), value: Double(70), text: nil)
+        let highMark :NChartValueAxisMark = Coordinator.getAxisMark(margin: 0.0, font: 12.0, color: UIColor(red:0.99, green:0.80, blue:0.00, alpha:1.0), value: Double(130), text: nil)
         m_view.chart.cartesianSystem.syAxis.addMark(highMark)
-        
-        let lowMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .red, value: Double(20), text: nil)
+
+        let lowMark :NChartValueAxisMark = Coordinator.getAxisMark(margin: 0.0, font: 12.0, color: .red, value: Double(70), text: nil)
         m_view.chart.cartesianSystem.syAxis.addMark(lowMark)
         
-        let firstxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 0.0, text: nil)
+        let firstxMark :NChartValueAxisMark = Coordinator.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 0.0, text: nil)
         m_view.chart.cartesianSystem.yAxis.addMark(firstxMark)
 
-        let secondxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 0.5, text: nil)
+        let secondxMark :NChartValueAxisMark = Coordinator.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 0.5, text: nil)
         m_view.chart.cartesianSystem.yAxis.addMark(secondxMark)
 
-        let thirdxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 1.0, text: nil)
+        let thirdxMark :NChartValueAxisMark = Coordinator.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 1.0, text: nil)
         m_view.chart.cartesianSystem.yAxis.addMark(thirdxMark)
 
-        let fourthxMark :NChartValueAxisMark = ChartView.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 1.5, text: nil)
+        let fourthxMark :NChartValueAxisMark = Coordinator.getAxisMark(margin: 0.0, font: 12.0, color: .black, value: 1.5, text: nil)
         m_view.chart.cartesianSystem.yAxis.addMark(fourthxMark)
         
         // add some margin to the borders
@@ -94,9 +90,12 @@ struct ChartView: UIViewRepresentable {
         // turn on anti-aliasing for better visual display
         m_view.chart.shouldAntialias = true
         
+        // set chart background color
+//        m_view.chart.background = NChartSolidColorBrush(color: UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0))
+        
         // create a series to be displayed.
         let series = NChartLineSeries()
-                
+                        
         // give series color and pattern
         series.brush = NChartSolidColorBrush(color: UIColor.green)
         series.lineDash = NChartLineDash(pattern: [3, 3])
@@ -108,11 +107,44 @@ struct ChartView: UIViewRepresentable {
         series.marker.shape = NChartMarkerShape.circle
         series.marker.size = 5
         series.marker.brush = NChartSolidColorBrush(color: UIColor(red:0.00, green:0.12, blue:0.38, alpha:1.0))
-//        series.tag = tagIncrement + ViewController.Series.glucose.rawValue
         series.hostsOnSY = true;
         
         // set series data source
         series.dataSource = context.coordinator
+        
+        // Create crosshair.
+        let lowCs = NChartCrosshair()
+        
+        // Set color for crosshair's haris.
+        lowCs.yHair.setColor(UIColor.red)
+        
+        // Set thickness for crosshair's hairs.
+        lowCs.thickness = 2.0
+        
+        // Set value for crosshair.
+        lowCs.yHair.value = 70
+        lowCs.yHair.hostsOnSAxis = true
+        lowCs.xHair.visible = false
+        lowCs.yHair.isDraggable = false
+
+        m_view.chart.cartesianSystem.add(lowCs)
+        
+        // Create crosshair.
+        let highCs = NChartCrosshair()
+        
+        // Set color for crosshair's haris.
+        highCs.yHair.setColor(UIColor(red:0.99, green:0.80, blue:0.00, alpha:1.0))
+        
+        // Set thickness for crosshair's hairs.
+        highCs.thickness = 2.0
+        
+        // Set value for crosshair.
+        highCs.yHair.value = 130
+        highCs.yHair.hostsOnSAxis = true
+        highCs.xHair.visible = false
+        highCs.yHair.isDraggable = false
+        
+        m_view.chart.cartesianSystem.add(highCs)
         
         // assign a data source to the series
         m_view.chart.removeAllSeries()
@@ -134,12 +166,11 @@ struct ChartView: UIViewRepresentable {
         
         // Enable auto-zoom of the Y-Axis.
         m_view.chart.cartesianSystem.shouldAutoZoom = false
-        m_view.chart.cartesianSystem.autoZoomAxes = NChartAutoZoomAxes.normalAxis
+        m_view.chart.cartesianSystem.autoZoomAxes = NChartAutoZoomAxes.bothAxes
         /**This can also be NChartAutoZoomAxes.SecondaryAxis, in case series are hosted on the secondary axis. **/
         
         // Disable unwanted interactive vertical panning and zooming not to conflict with automatic ones.
         m_view.chart.userInteractionMode = (m_view.chart.userInteractionMode) ^ (NChartUserInteraction.proportionalZoom.rawValue | NChartUserInteraction.verticalZoom.rawValue | NChartUserInteraction.verticalMove.rawValue);
-        m_view.chart.zoomMode = NChartZoomMode.directional;
         
         // Disable ticks on axis
         m_view.chart.cartesianSystem.xAxis.minorTicks.visible = false;
@@ -149,13 +180,9 @@ struct ChartView: UIViewRepresentable {
         m_view.chart.cartesianSystem.syAxis.minorTicks.visible = false;
         m_view.chart.cartesianSystem.syAxis.majorTicks.visible = false;
         
-        let columnSeriesSettings:NChartColumnSeriesSettings  = NChartColumnSeriesSettings()
-        columnSeriesSettings.shouldGroupColumns = false
-        columnSeriesSettings.thickness = 150.0
-        m_view.chart.add(columnSeriesSettings)
-                
         // update the chart to display data. call this method any time data was changed
         m_view.chart.updateData()
+        m_view.chart.maxZoom = 1000
         
         return m_view
     }
@@ -169,112 +196,207 @@ struct ChartView: UIViewRepresentable {
     
     // Connects a Coordinator class to the UIView Representable
     func makeCoordinator() -> Coordinator {
-        Coordinator()
+        Coordinator(self)
     }
-    
-    static func getAxisMark(margin: Float, font: Float, color: UIColor, value: Double, text: String?) -> NChartValueAxisMark{
-           
-           let mark :NChartValueAxisMark = NChartValueAxisMark()
-           mark.margin.right = margin
-           mark.textColor = color
-           mark.value = value
-           
-           if(text == nil){
-               mark.text = "\(value)";
-           }else{
-               mark.text = text
-           }
-           mark.tick.visible = false
-           mark.font = .systemFont(ofSize: CGFloat(font))
-           
-           return mark
-           
-       }
-    
-    static func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-        
-        if ((cString.count) != 6) {
-            return UIColor.gray
-        }
-        
-        var rgbValue:UInt64 = 0
-        Scanner(string: cString).scanHexInt64(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-    
+
     
     
     // MARK: Coordinator Class
 
     // Coordinator class needed for controlling the view
     class Coordinator: NSObject, NChartSeriesDataSource, NChartValueAxisDataSource, UINavigationControllerDelegate, ObservableObject {
-
-//        @Binding var viewModel: ContentViewModel
     
         @State var viewModel = ContentViewModel()
+        
+        var parent: ChartView
+        
+        init(_ parent: ChartView ) {
+            self.parent = parent
+        }
             
         var m_count: Int = 0        // used to track index in chart
-        let valueArray = [15, 40, 60, 80, 90, 60, 40]     // test array of input values for chart
+        let valueArray = [60, 70, 75, 75, 80, 90, 110, 135, 140, 120, 100, 80, 80]     // test array of input values for chart
   
         var counter = 0                     // tracks current position in value array
         
-        var currentTimestamp: String = ""   // stores generated cgm value (y-axis value)
-        var currentValue: String = ""       // stores generated cgm date (x-axis value)
+//        var currentTimestamp: String = ""   // stores generated cgm value (y-axis value)
+//        var currentValue: String = ""       // stores generated cgm date (x-axis value)
+        
+        
+        
         
         // MARK: Utility Functions
-        
-        // Generate random value
-        func myrand(_ max: Int) -> Double {
-            return Double(arc4random_uniform(UInt32(max)))
+      
+        static func getMarkerBrush(color : UIColor) -> NChartMarker{
+            let marker = NChartMarker()
+            marker.shape = NChartMarkerShape.circle
+            marker.size = 5
+            marker.brush = NChartSolidColorBrush(color: color)
+            return marker
+
         }
         
-        // Sets the current value to that of the most recent cgm
-        func setCurrentValues() {
+        
+        // create marks for the axis
+        static func getAxisMark(margin: Float, font: Float, color: UIColor, value: Double, text: String?) -> NChartValueAxisMark{
+            
+            let mark :NChartValueAxisMark = NChartValueAxisMark()
+            mark.margin.right = margin
+            mark.textColor = color
+            mark.value = value
+            
+            if(text == nil){
+                mark.text = "\(value)";
+            }else{
+                mark.text = text
+            }
+            mark.tick.visible = false
+            mark.font = .systemFont(ofSize: CGFloat(font))
+            
+            return mark
+            
         }
+        
+         static func hexStringToUIColor (hex:String) -> UIColor {
+                var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+            
+                if (cString.hasPrefix("#")) {
+                    cString.remove(at: cString.startIndex)
+                }
+                
+                if ((cString.count) != 6) {
+                    return UIColor.gray
+                }
+                
+                var rgbValue:UInt64 = 0
+                Scanner(string: cString).scanHexInt64(&rgbValue)
+                
+                return UIColor(
+                    red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+                    green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+                    blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+                    alpha: CGFloat(1.0)
+                )
+            }
+        
+        
+        
         
         // MARK: NChartSeriesDataSource
         
-        // TODO: Populate Chart with previous Patients Data
         // Used to set initial values for the x an y axis
         func seriesDataSourcePoints(for series: NChartSeries!) -> [Any]! {
     
             var result = [NChartPoint]()    // empty array for the initial points
+            var point: NChartPoint
+            
             m_count = 0                     // set index to zero
+
+            // TODO: Grab values from previous 12 hours
+
             
             //populate the chart with N values
             for _ in 0...10 {
-                result.append(NChartPoint(state: randomState(m_count), for: series)) // append random value to current index
+                point = setInitialPoints(series: series, index: m_count)
+                result.append(point) // append random value to current index
                 m_count += 1    // increment index
             }
             
             return result // returns array of points
+        
         }
+        
+    
         
         // Set name for the data series
         func seriesDataSourceName(for series: NChartSeries!) -> String! {
            return "Glucose Level (mg/dL)"
         }
         
-        // TODO: Get additional points from the generated cgm
+        
+        func newState(_ index: Int) -> NChartPointState! {
+                    
+            let m_value = Double(parent.viewModel.currentValue)
+            
+            return NChartPointState(alignedToXWithX: index, y: m_value ?? 00)
+
+        }
+        
+        func setPoint(series: NChartSeries!)->NChartPoint{
+            var chartPoint: NChartPoint
+            chartPoint = NChartPoint(state: newState(m_count), for: series)!
+            
+            if(chartPoint.currentState.doubleY != 0.0 && chartPoint.currentState.doubleY <= Double(70)){
+                chartPoint.currentState.marker = ChartView.Coordinator.getMarkerBrush(color: UIColor.red)
+            }else if(chartPoint.currentState.doubleY != 0.0 && chartPoint.currentState.doubleY >= Double(130)){
+                chartPoint.currentState.marker = ChartView.Coordinator.getMarkerBrush(color: UIColor(red:0.99, green:0.80, blue:0.00, alpha:1.0))
+            }
+            
+            return chartPoint
+        }
+        
+        func setInitialPoints(series: NChartSeries!, index: Int)->NChartPoint{
+            var chartPoint: NChartPoint
+            chartPoint = NChartPoint(state: randomState(m_count), for: series)!
+            
+            if(chartPoint.currentState.doubleY != 0.0 && chartPoint.currentState.doubleY <= Double(70)){
+                chartPoint.currentState.marker = ChartView.Coordinator.getMarkerBrush(color: UIColor.red)
+            }else if(chartPoint.currentState.doubleY != 0.0 && chartPoint.currentState.doubleY >= Double(130)){
+                chartPoint.currentState.marker = ChartView.Coordinator.getMarkerBrush(color: UIColor(red:0.99, green:0.80, blue:0.00, alpha:1.0))
+            }
+            
+            return chartPoint
+        }
+        
         // generate extra points for extending the chart
         func seriesDataSourceExtraPoints(for series: NChartSeries!) -> [Any]! {
             
-            let result = [NChartPoint(state: newState(m_count), for: series)!]
+            var result = [NChartPoint]()
+       
+            let point = setPoint(series: series)
+            result.append(point)
             m_count += 1
             
             return result as [AnyObject]
         }
+        
+//        func displayReferenceLines(series: NChartSeries, glucoseThreshold: GlucoseThresholdModel){
+//
+//            // Create crosshair.
+//            let lowCs = NChartCrosshair()
+//
+//            // Set color for crosshair's haris.
+//            lowCs.yHair.setColor(UIColor.red)
+//
+//            // Set thickness for crosshair's hairs.
+//            lowCs.thickness = 2.0
+//
+//            // Set value for crosshair.
+//            lowCs.yHair.value = Double(glucoseThreshold.low)!
+//            lowCs.yHair.hostsOnSAxis = true
+//            lowCs.xHair.visible = false
+//            lowCs.yHair.isDraggable = false
+//
+//            series.chart.cartesianSystem.add(lowCs)
+//
+//            // Create crosshair.
+//            let highCs = NChartCrosshair()
+//
+//            // Set color for crosshair's haris.
+//            highCs.yHair.setColor(UIColor(red:0.99, green:0.80, blue:0.00, alpha:1.0))
+//
+//            // Set thickness for crosshair's hairs.
+//            highCs.thickness = 2.0
+//
+//            // Set value for crosshair.
+//            highCs.yHair.value = Double(glucoseThreshold.high)!
+//            highCs.yHair.hostsOnSAxis = true
+//            highCs.xHair.visible = false
+//            highCs.yHair.isDraggable = false
+//
+//            series.chart.cartesianSystem.add(highCs)
+//
+//        }
         
         
         // MARK: NChartValueAxisDataSource
@@ -338,16 +460,7 @@ struct ChartView: UIViewRepresentable {
             return NChartPointState(alignedToXWithX: index, y: Double(value))
         }
         
-        func newState(_ index: Int) -> NChartPointState! {
-            
-            let m_value = Double(viewModel.currentValue)
-//            let m_value = Double(viewModel.value)
-            
-            print("m_value is : \(m_value)\n")
-            
-            return NChartPointState(alignedToXWithX: index, y: m_value ?? 50)
-
-        }
+        
         
     } // end class coordinator
 } // end struct
