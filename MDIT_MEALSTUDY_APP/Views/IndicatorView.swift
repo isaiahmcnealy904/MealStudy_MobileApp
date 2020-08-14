@@ -43,7 +43,6 @@ struct Indicator: View {
             VStack {
                 
                 Text(String(viewModel.currentValue))     // retrieve this from CGM Object
-//                Text(String(viewModel.value))
                     .font(.headline)
                     .foregroundColor(.white)
                 
