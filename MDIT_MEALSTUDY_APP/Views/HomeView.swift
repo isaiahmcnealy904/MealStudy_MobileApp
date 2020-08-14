@@ -16,8 +16,6 @@ struct HomeView: View {
     @State var viewModel: ContentViewModel
     
     // tracks the simulator state and starts auto charting on graph
-//    @State var test_indicator: Bool = true
-//    @State var test_details: Bool = true
     @State var test: Bool = true
     
     // create timer and timer objects

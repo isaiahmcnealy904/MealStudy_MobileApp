@@ -19,7 +19,6 @@
 		5A5787A324BCA4D500E7E1D0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5787A224BCA4D500E7E1D0 /* Data.swift */; };
 		5A5787A524BCA52D00E7E1D0 /* cgms.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A5787A424BCA52D00E7E1D0 /* cgms.json */; };
 		5AA76FB124DB89EC00B2627A /* GlucoseThresholdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA76FB024DB89EC00B2627A /* GlucoseThresholdModel.swift */; };
-		5AA76FB324DB951200B2627A /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA76FB224DB951200B2627A /* Subject.swift */; };
 		AD4064972485119000A3386B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4064962485119000A3386B /* AppDelegate.swift */; };
 		AD4064992485119000A3386B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4064982485119000A3386B /* SceneDelegate.swift */; };
 		AD40649D2485119A00A3386B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD40649C2485119A00A3386B /* Assets.xcassets */; };
@@ -44,7 +43,6 @@
 		5A5787A224BCA4D500E7E1D0 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		5A5787A424BCA52D00E7E1D0 /* cgms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cgms.json; sourceTree = "<group>"; };
 		5AA76FB024DB89EC00B2627A /* GlucoseThresholdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoseThresholdModel.swift; sourceTree = "<group>"; };
-		5AA76FB224DB951200B2627A /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		AD4064932485119000A3386B /* MDIT_MEALSTUDY_APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDIT_MEALSTUDY_APP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4064962485119000A3386B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD4064982485119000A3386B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				AD4064AB2485132D00A3386B /* CGM.swift */,
 				5A5787A224BCA4D500E7E1D0 /* Data.swift */,
 				5AA76FB024DB89EC00B2627A /* GlucoseThresholdModel.swift */,
-				5AA76FB224DB951200B2627A /* Subject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,7 +238,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD4064B324851F7800A3386B /* CGMDateFormatter.swift in Sources */,
-				5AA76FB324DB951200B2627A /* Subject.swift in Sources */,
 				AD4064972485119000A3386B /* AppDelegate.swift in Sources */,
 				AD4064992485119000A3386B /* SceneDelegate.swift in Sources */,
 				5A57879D24B746F300E7E1D0 /* HomeView.swift in Sources */,
